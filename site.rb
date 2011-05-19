@@ -1,6 +1,8 @@
 require "cuba"
 require "csv"
 require "json"
+require "tilt"
+require "haml"
 require "./data_init"
 
 RAW_DATA = load_raw_data
@@ -14,7 +16,8 @@ Cuba.use Rack::Session::Cookie
 Cuba.define do
   on get do
     on "hello" do
-      res.write "Hola! Esta es una API. "
+      template = Tilt::HamlTemplate.new('templates/hello.html.haml')
+      res.write template.render
     end
     
     on "raw_data" do 
