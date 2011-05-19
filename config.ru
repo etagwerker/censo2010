@@ -1,0 +1,3 @@
+require "./site"
+
+run Cuba
