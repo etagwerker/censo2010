@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "cuba"
 require "csv"
 require "json"
@@ -22,12 +24,12 @@ Cuba.define do
   end
 
   def page(view, options = {})
-    layout("layout", content: partial(view, options))
+    res.write layout("layout", content: partial(view, options))
   end
 
   on get do
     on "" do
-      res.write page("home")
+      page("home")
     end
 
     on "raw_data" do
