@@ -14,7 +14,6 @@ class Departamento
   has n, :points
   
   def initialize(hash)
-    puts "Creating Departamento"
     self.nombre = hash['DEPARTAMENTO']
     self.cabecera = hash['CABECERA']
     self.provincia = hash['PROVINCIA']    
@@ -27,7 +26,6 @@ class Departamento
     points = extract_points_array(hash)
     
     self.points = points.collect { |point| Point.new(self, point) }
-    puts "Created Departamento #{self.nombre}"    
   end
   
   # returns something like this

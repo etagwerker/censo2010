@@ -12,7 +12,6 @@ def load_raw_data
       column_names = []
       column_names = row
     else
-      puts "Loading departamento ##{pos}"
       hash = {}
       row.each_with_index do |value, pos|
         hash[column_names[pos]] = value
@@ -21,7 +20,6 @@ def load_raw_data
       unless Departamento.first(:conditions => {:nombre => hash["DEPARTAMENTO"], :provincia => hash["PROVINCIA"]})
         Departamento.new(hash).save  
       end
-      puts "Loaded departamento"
     end
   end
   puts "Loaded raw data"
