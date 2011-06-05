@@ -6,6 +6,8 @@ cuba --version 2.0.0
 culerity --version 0.2.15
 cutest --version 1.1.2
 ffi --version 1.0.8
+data_mapper --version 1.1.0
+dm-serializer --version 1.1.0
 heroku --version 2.1.4
 json_pure --version 1.5.1
 launchy --version 0.4.0
