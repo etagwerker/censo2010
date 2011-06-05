@@ -15,7 +15,7 @@ VERSION = "0.2"
 Dir.glob(File.dirname(__FILE__) + '/app/models/*') {|file| require file}
 DataMapper.finalize
 
-DataMapper::Logger.new($stdout, :debug)
+DataMapper::Logger.new($stdout, :info)
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://mnwo:mnw0@localhost/censo_2010')
 DataMapper.auto_upgrade!
 
