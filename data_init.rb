@@ -1,5 +1,3 @@
-require "ruby-debug"
-
 # carga datos de un csv en un array de hashes
 # y en la base de datos
 def load_raw_data
