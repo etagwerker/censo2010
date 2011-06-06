@@ -1,6 +1,6 @@
 # carga datos de un csv en un array de hashes
 # y en la base de datos
-def load_raw_data
+task :load_raw_data do
   puts "Loading raw data"
   
   result = []
@@ -19,6 +19,7 @@ def load_raw_data
       result << hash
       unless Departamento.first(:conditions => {:nombre => hash["DEPARTAMENTO"], :provincia => hash["PROVINCIA"]})
         Departamento.new(hash).save  
+        saved += 1
       end
     end
   end
