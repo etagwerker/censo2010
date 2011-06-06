@@ -17,7 +17,7 @@ La idea es hacer más fácil el consumo de datos sin tener que buscar siempre so
 
 ### Básicos
 
-* GET /provincias
+* GET /provincias = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/provincias)
 * GET /cabeceras
 * GET /departamentos
 
