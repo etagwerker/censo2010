@@ -7,6 +7,7 @@ require "data_mapper"
 require "dm-postgres-adapter"
 require "dm-migrations"
 require "dm-serializer/to_json"
+require "./lib/data_loader.rb"
 
 VERSION = "0.2"
 
@@ -24,7 +25,7 @@ Cuba.use Rack::Session::Cookie
 # Datos de http://bit.ly/kac3xe (by @jazzido)
 Cuba.define do
   def partial(view, options = {})
-    render("views/#{view}.haml", options)
+    render("app/views/#{view}.haml", options)
   end
   
   # takes buenos_aires and it turns it into
@@ -35,11 +36,20 @@ Cuba.define do
   end
 
   def layout(layout, options)
-    render("views/#{layout}.haml", options)
+    render("app/views/#{layout}.haml", options)
   end
 
   def page(view, options = {})
     res.write layout("layout", content: partial(view, options))
+  end
+  
+  on post do 
+    on "load_data" do |variable|
+      @initial = Departamento.count
+      load_data
+      @end = Departamento.count
+      page("load_data")
+    end
   end
 
   on get do
