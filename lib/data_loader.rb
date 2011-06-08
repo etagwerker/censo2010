@@ -1,11 +1,11 @@
-# carga datos de un csv en un array de hashes
-# y en la base de datos
-task :load_raw_data do
+# loads data from the CSV
+def load_data
   puts "Loading raw data"
   
   result = []
   column_names = nil
   pos = 0
+  saved = 0
   CSV.foreach("datos_preliminares_censo_2010_argentina.csv", :col_sep =>',', :row_sep =>:auto) do |row|
     pos += 1
     unless column_names
@@ -21,8 +21,10 @@ task :load_raw_data do
         Departamento.new(hash).save  
         saved += 1
       end
+      if saved > 5
+        break
+      end
     end
   end
-  puts "Loaded raw data"
+  puts "Loaded raw data"  
 end
-
