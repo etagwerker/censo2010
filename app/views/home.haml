@@ -1,0 +1,67 @@
+-# encoding: utf-8
+
+.hola
+  %h1
+    Hola!
+    
+  Esta es la API del Censo Argentino 2010.
+
+.spec
+
+  %h1
+    Métodos disponibles
+  %p
+    Los métodos se acceden a través de una interfaz HTTP REST y devuelven JSON.
+
+  %p
+    %h2
+      Provincias
+    %a{:href => '/provincias'}
+      GET /provincias
+  %p
+    %h2
+      Cabeceras
+    %a{:href => '/cabeceras'}
+      GET /cabeceras
+  %p
+    %h2
+      Departamentos
+    %a{:href => '/departamentos'}
+      GET /departamentos
+  %p
+    %h2
+      Datos por Provincia
+    %a{:href => '/buenos_aires'}
+      GET /buenos_aires
+    (En general, GET /nombre_de_provincia)
+  %p
+    %h2
+      Datos por Departamento
+    %a{:href => '/buenos_aires/san_nicolas'}
+      GET /buenos_aires/san_nicolas
+    (En general, GET /nombre_de_provincia/nombre_de_departamento)    
+  %p
+    %h2
+      Personas por Vivienda
+    %a{:href => '/personas_por_vivienda'}
+      GET /personas_por_vivienda
+  %p
+    %h2
+      Personas por Vivienda por Provincia
+    %a{:href => '/buenos_aires/personas_por_vivienda'}
+      GET /nombre_de_provincia/personas_por_vivienda
+  %p
+    %h2
+      Personas por Vivienda por Departamento
+    %a{:href => '/buenos_aires/san_nicolas/personas_por_vivienda'}
+      GET /buenos_aires/san_nicolas/personas_por_vivienda                
+  %p
+    %h2
+      Raw Data
+    %a{:href => '/raw_data'}
+      GET /raw_data
+  %p
+    %h2
+      Version
+    %a{:href => '/version'}
+      GET /version
