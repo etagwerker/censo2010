@@ -21,7 +21,7 @@ def load_data
         Departamento.new(hash).save  
         saved += 1
       end
-      if saved > 5
+      if saved > 0
         break
       end
     end
