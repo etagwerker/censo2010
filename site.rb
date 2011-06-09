@@ -24,6 +24,10 @@ Cuba.define do
     result.upcase!
   end
 
+  def underscore(id)
+    id.to_s.downcase.sub(" ", "_")
+  end
+
   def layout(layout, options)
     render("app/views/#{layout}.haml", options)
   end
@@ -64,7 +68,9 @@ Cuba.define do
     end
     
     on "provincias" do 
-      res.write Departamento.all(:fields => [:provincia], :unique => true, :order => :provincia.asc).map(&:provincia).to_json
+      res.write Departamento.all(:fields => [:provincia], :unique => true, :order => :provincia.asc).map { |d| 
+        { :id => underscore(d.provincia), :nombre => d.provincia }  
+      }.to_json
     end
 
     on "raw_data" do
