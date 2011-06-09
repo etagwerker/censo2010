@@ -33,12 +33,16 @@ Cuba.define do
   end
   
   on post do 
+    
+    # this method is just a workaround for the
+    # heroku deployment and loading the data
     on "load_data" do |variable|
       @initial = Departamento.count
       load_data
       @end = Departamento.count
       page("load_data")
     end
+    
   end
 
   on get do
