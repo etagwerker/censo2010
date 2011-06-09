@@ -1,22 +1,11 @@
 # encoding: utf-8
 
 require "cuba"
-require "csv"
 require "haml"
-require "data_mapper"
-require "dm-postgres-adapter"
-require "dm-migrations"
-require "dm-serializer/to_json"
+
 require "./lib/data_loader.rb"
 
 VERSION = "0.2"
-
-Dir.glob(File.dirname(__FILE__) + '/app/models/*') {|file| require file}
-DataMapper.finalize
-
-DataMapper::Logger.new($stdout, :info)
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://mnwo:mnw0@localhost/censo_2010')
-DataMapper.auto_upgrade!
 
 Cuba.use Rack::Session::Cookie
 
