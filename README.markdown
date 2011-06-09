@@ -4,12 +4,21 @@ API del Censo 2010. Disponible aquí: [http://censo2010.heroku.com](http://censo
 
 Este código sirve para ver los datos del Censo 2010 en formato JSON. Los datos fueron provistos por @jazzido: http://bit.ly/kac3xe
 
-## Installation
+## Instalación
 
-git clone git://github.com/etagwerker/censo2010
-cd censo2010
-rvm gemset import default.gems
-rackup
+### Requerimientos
+
+* Tener Posgres
+* Crear una base de datos 
+* Ajustar el string de conexión a la DB (Ver ./lib/data_loader.rb)
+
+### Pasos
+
+* git clone git://github.com/etagwerker/censo2010
+* cd censo2010
+* rvm gemset import default.gems
+* rake load_data
+* rackup
 
 ## Métodos
 
@@ -37,6 +46,12 @@ La idea es hacer más fácil el consumo de datos sin tener que buscar siempre so
 
 * GET /version
 
+## Roadmap
+
+* Más tests, esta API no tiene casi ningún test 
+* Ordenamiento de resultados según alguno de los atributos devueltos. Por ejemplo: GET /personas_por_vivienda?mujeres_por_vivienda=asc o GET /buenos_aires?superficie=asc
+* Otras sugerencias de métodos son bienvenidos
+
 ## Contribuciones
  
 * Cualquier contribución es bienvenida
@@ -50,7 +65,6 @@ La idea es hacer más fácil el consumo de datos sin tener que buscar siempre so
 * Send me a pull request. Bonus points for topic branches
 
 ## License
-
 
 (The MIT License)
 
