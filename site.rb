@@ -23,9 +23,13 @@ Cuba.define do
     result = param.sub(/_/,' ')
     result.upcase!
   end
+    
+  def as_record(value)
+    { :id => parameterize(value), :nombre => value }
+  end
 
-  def underscore(id)
-    id.to_s.downcase.sub(" ", "_")
+  def parameterize(id)
+    id.to_s.downcase.gsub(" ", "_")
   end
 
   def layout(layout, options)
@@ -60,17 +64,18 @@ Cuba.define do
     end
     
     on "cabeceras" do 
-      res.write Departamento.all(:fields => [:cabecera], :unique => true, :order => :cabecera.asc).map(&:cabecera).to_json
+      res.write Departamento.all(:fields => [:cabecera], :unique => true, :order => :cabecera.asc).map { |d| 
+        as_record(d.cabecera) }.to_json
     end
         
     on "departamentos" do
-      res.write Departamento.all(:fields => [:nombre], :unique => true, :order => :nombre.asc).map(&:nombre).to_json        
+      res.write Departamento.all(:fields => [:nombre], :unique => true, :order => :nombre.asc).map { |d| 
+        as_record(d.nombre) }.to_json
     end
     
     on "provincias" do 
       res.write Departamento.all(:fields => [:provincia], :unique => true, :order => :provincia.asc).map { |d| 
-        { :id => underscore(d.provincia), :nombre => d.provincia }  
-      }.to_json
+        as_record(d.provincia) }.to_json
     end
 
     on "raw_data" do
