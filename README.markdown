@@ -27,24 +27,24 @@ La idea es hacer más fácil el consumo de datos sin tener que buscar siempre so
 ### Básicos
 
 * GET /provincias = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/provincias)
-* GET /cabeceras
-* GET /departamentos
+* GET /cabeceras = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/cabeceras)
+* GET /departamentos = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/departamentos)
 
 ### Datos por X
 
-* GET /raw_data (Todo el CSV) 
-* GET /buenos_aires (En general, GET /nombre_de_provincia)
-* GET /buenos_aires/san_nicolas (En general, GET /nombre_de_provincia/nombre_de_departamento)
+* GET /raw_data (Todo el CSV) = [http://censo2010.heroku.com/raw_data](http://censo2010.heroku.com/raw_data) 
+* GET /buenos_aires (En general, GET /nombre_de_provincia) = [http://censo2010.heroku.com/buenos_aires](http://censo2010.heroku.com/buenos_aires)
+* GET /buenos_aires/san_nicolas (En general, GET /nombre_de_provincia/nombre_de_departamento) = [http://censo2010.heroku.com/buenos_aires/san_nicolas](http://censo2010.heroku.com/buenos_aires/san_nicolas)
 
 ### Personas por Vivienda
 
-* GET /personas_por_vivienda (Todo el país)
-* GET /nombre_de_provincia/personas_por_vivienda
-* GET /buenos_aires/san_nicolas/personas_por_vivienda
+* GET /personas_por_vivienda (Todo el país) = [http://censo2010.heroku.com/personas_por_vivienda](http://censo2010.heroku.com/personas_por_vivienda)
+* GET /nombre_de_provincia/personas_por_vivienda = [http://censo2010.heroku.com/buenos_aires/personas_por_vivienda](http://censo2010.heroku.com/buenos_aires/personas_por_vivienda)
+* GET /buenos_aires/san_nicolas/personas_por_vivienda = [http://censo2010.heroku.com/buenos_aires/san_nicolas/personas_por_vivienda](http://censo2010.heroku.com/buenos_aires/san_nicolas/personas_por_vivienda)
 
 ### Version
 
-* GET /version
+* GET /version = [http://censo2010.heroku.com/version](http://censo2010.heroku.com/version)
 
 ## Roadmap
 
