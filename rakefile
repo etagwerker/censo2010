@@ -1,5 +1,11 @@
+require './lib/data_loader.rb' 
+
 task :default => :test
 
 task :test do
   system "cutest test/*.rb"
+end
+
+task :load_data do  
+  load_data(:all => true)
 end
