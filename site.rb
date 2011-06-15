@@ -37,6 +37,7 @@ Cuba.define do
   end
 
   def page(view, options = {})
+    res['Content-Type'] = 'text/html'
     res.write layout("layout", content: partial(view, options))
   end
   
@@ -54,12 +55,11 @@ Cuba.define do
   end
 
   on get do
-
+    res['Content-Type'] = 'application/json'
+    
     on "" do
       page("home")
     end
-  
-    res['Content-Type'] = 'application/json'
     
     on "cabeceras" do 
       res.write Departamento.all(:fields => [:cabecera], :unique => true, :order => :cabecera.asc).map { |d| 
