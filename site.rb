@@ -54,14 +54,12 @@ Cuba.define do
   end
 
   on get do
-    
-    on "version" do |variable|
-      res.write VERSION.to_json
-    end
-    
+
     on "" do
       page("home")
     end
+  
+    res['Content-Type'] = 'application/json'
     
     on "cabeceras" do 
       res.write Departamento.all(:fields => [:cabecera], :unique => true, :order => :cabecera.asc).map { |d| 
@@ -76,6 +74,10 @@ Cuba.define do
     on "provincias" do 
       res.write Departamento.all(:fields => [:provincia], :unique => true, :order => :provincia.asc).map { |d| 
         as_record(d.provincia) }.to_json
+    end
+    
+    on "version" do |variable|
+      res.write VERSION.to_json
     end
 
     on "raw_data" do
