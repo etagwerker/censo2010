@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Censo 2010 UI</title>
+    
+  </head>
+  
+  <script type="text/javascript" charset="utf-8" src="jquery-1.4.2.js"></script>
+  <script type="text/javascript" charset="utf-8" src="underscore-1.1.3.js"></script>
+  <script type="text/javascript" charset="utf-8" src="backbone.js"></script>
+  <script type="text/javascript" charset="utf-8" src="loader.js"></script>
+  <script type="text/javascript" charset="utf-8" src="json2.js"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      Censo2010.Cabeceras = new Censo2010.CabecerasCollection;
+      Censo2010.Cabeceras.fetch({success: function() {alert('success!');} })
+      
+      console.log(Censo2010.Cabeceras.length);
+      
+    });
+  </script>
+  
+  <body id="index">
+    <h1 id="">Censo 2010</h1>
+    <p>This is the content</p>
+  </body>
+  
+</html>
