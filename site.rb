@@ -7,7 +7,7 @@ require "./lib/data_loader.rb"
 
 VERSION = "0.2.1"
 
-Cuba.use Rack::Static, :urls => ['/js']
+Cuba.use Rack::Static, :urls => ['/js', '/public']
 Cuba.use Rack::Session::Cookie
 
 # Esto define una simple API para ver datos en JSON
