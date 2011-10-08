@@ -1,5 +1,25 @@
+-# encoding: utf-8
+
 %html
   %head
     %meta{:charset => "utf-8"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "public/bootstrap.css"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "public/site.css"}    
+    
   %body
-    != content
+    .topbar
+      .fill
+        .container 
+          %a.brand{:href => '/'}
+            Censo 2010 API
+    .container 
+      %section#grid-system
+        != content
+
+    %footer.footer
+      .container
+        %p.pull-right
+          %a{:href => "#"}
+            Back to top
+        %p
+          Desarrollado por <a href="http://twitter.com/etagwerker" target="_blank">@etagwerker</a>. Código abierto: <a href="http://github.com/etagwerker/censo2010">Github</a>
