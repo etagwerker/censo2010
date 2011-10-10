@@ -26,8 +26,10 @@ La idea es hacer más fácil el consumo de datos sin tener que buscar siempre so
 
 ### Básicos
 
-* GET /provincias = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/provincias)
-* GET /cabeceras = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/cabeceras)
+* GET /provincias = [http://censo.heroku.com/provincias](http://censo2010.heroku.com/provincias)
+
+    [{"id":"buenos_aires","nombre":"Buenos Aires"},{"id":"catamarca","nombre":"Catamarca"},{"id":"chaco","nombre":"Chaco"},{"id":"chubut","nombre":"Chubut"},{"id":"ciudad_autónoma_de_buenos_aires","nombre":"Ciudad Autónoma de Buenos Aires"},{"id":"corrientes","nombre":"Corrientes"},{"id":"córdoba","nombre":"Córdoba"},{"id":"entre_ríos","nombre":"Entre Ríos"},{"id":"formosa","nombre":"Formosa"},{"id":"jujuy","nombre":"Jujuy"},{"id":"la_pampa","nombre":"La Pampa"},{"id":"la_rioja","nombre":"La Rioja"},{"id":"mendoza","nombre":"Mendoza"},{"id":"misiones","nombre":"Misiones"},{"id":"neuquén","nombre":"Neuquén"},{"id":"río_negro","nombre":"Río Negro"},{"id":"salta","nombre":"Salta"},{"id":"san_juan","nombre":"San Juan"},{"id":"san_luis","nombre":"San Luis"},{"id":"santa_cruz","nombre":"Santa Cruz"},{"id":"santa_fe","nombre":"Santa Fe"},{"id":"santiago_del_estero","nombre":"Santiago del Estero"},{"id":"tierra_del_fuego,_antártida_e_islas_del_atlántico_sur","nombre":"Tierra del Fuego, Antártida e Islas del Atlántico Sur"},{"id":"tucumán","nombre":"Tucumán"}]
+
 * GET /departamentos = [http://censo2010.heroku.com/provincias](http://censo2010.heroku.com/departamentos)
 
 ### Datos por X
