@@ -9,5 +9,10 @@ Dir.glob(File.dirname(__FILE__) + '/../app/models/*') {|file| require file}
 DataMapper::Logger.new($stdout, :info)
 
 DataMapper.finalize
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://mnwo:mnw0@localhost/censo')
+if ENV['DATABASE_URL']
+  DataMapper.setup(:default, ENV['DATABASE_URL'])
+else
+  DataMapper.setup(:default, :adapter => 'postgres', :user => 'mnwo', :password => 'mnw0', :host => 'localhost', :database => 'censo', :encoding => 'UTF-8')  
+end
+
 DataMapper.auto_upgrade!
