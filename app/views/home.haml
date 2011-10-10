@@ -22,12 +22,6 @@
         GET /provincias
   %p
     %h3
-      Cabeceras
-    %a{:href => '/cabeceras'}
-      %pre
-        GET /cabeceras
-  %p
-    %h3
       Departamentos
     %a{:href => '/departamentos'}
       %pre
@@ -46,24 +40,6 @@
       %pre    
         GET /buenos_aires/san_nicolas
     (En general, GET /nombre_de_provincia/nombre_de_departamento)    
-  %p
-    %h3
-      Personas por Vivienda
-    %a{:href => '/personas_por_vivienda'}
-      %pre    
-        GET /personas_por_vivienda
-  %p
-    %h3
-      Personas por Vivienda por Provincia
-    %a{:href => '/buenos_aires/personas_por_vivienda'}
-      %pre    
-        GET /nombre_de_provincia/personas_por_vivienda
-  %p
-    %h3
-      Personas por Vivienda por Departamento
-    %a{:href => '/buenos_aires/san_nicolas/personas_por_vivienda'}
-      %pre    
-        GET /buenos_aires/san_nicolas/personas_por_vivienda                
   %p
     %h3
       Raw Data
