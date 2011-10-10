@@ -5,7 +5,7 @@ require "haml"
 
 require "./lib/data_loader.rb"
 
-VERSION = "0.2.1"
+VERSION = "2.0"
 
 Cuba.use Rack::Static, :urls => ['/js', '/public']
 Cuba.use Rack::Session::Cookie
@@ -61,11 +61,6 @@ Cuba.define do
     on "" do
       page("home")
     end
-    
-    on "cabeceras" do 
-      res.write Departamento.all(:fields => [:cabecera], :unique => true, :order => :cabecera.asc).map { |d| 
-        as_record(d.cabecera) }.to_json
-    end
         
     on "departamentos" do
       res.write Departamento.all(:fields => [:nombre], :unique => true, :order => :nombre.asc).map { |d| 
@@ -82,16 +77,9 @@ Cuba.define do
     end
 
     on "raw_data" do
-      # points todavia no lo muestra porque no se 
-      # como hace datamapper para cargar las associations
-      # 'eagerly', cuando lo sepa sera arreglado (@etagwerker)
       res.write Departamento.all.to_json
     end
-
-    on "personas_por_vivienda" do
-      res.write Departamento.all.to_json(:only => [:nombre, :cabecera, :provincia], :methods => [:total_personas, :personas_por_vivienda, :mujeres_por_vivienda, :varones_por_vivienda])
-    end
-    
+  
     on ":provincia" do |pcia|
       on "" do
         res.write Departamento.all(:provincia => sanitize(pcia)).to_json        
@@ -101,26 +89,12 @@ Cuba.define do
         res.write Departamento.all(:provincia => sanitize(pcia), :order => :nombre.asc).map(&:nombre).to_json        
       end
       
-      on "cabeceras" do 
-        res.write Departamento.all(:provincia => sanitize(pcia), :order => :cabecera.asc).map(&:cabecera).to_json
-      end
-      
-      on "personas_por_vivienda" do
-        res.write Departamento.all(:provincia => sanitize(pcia)).to_json(:only => [:nombre, :cabecera, :provincia], :methods => [:total_personas, :personas_por_vivienda, :mujeres_por_vivienda, :varones_por_vivienda])
-      end
-      
       on ":departamento" do |depto|
         
         on "" do 
           res.write Departamento.all(:nombre => sanitize(depto), :provincia => sanitize(pcia)).to_json            
         end
-        
-        on "personas_por_vivienda" do
-          res.write Departamento.all(:nombre => sanitize(depto), :provincia => sanitize(pcia)).to_json(:only => [:nombre, :cabecera, :provincia], :methods => [:total_personas, :personas_por_vivienda, :mujeres_por_vivienda, :varones_por_vivienda])
-        end
       end
-          
     end
-      
   end
 end
