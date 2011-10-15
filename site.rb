@@ -10,9 +10,10 @@ VERSION = "2.0"
 Cuba.use Rack::Static, :urls => ['/js', '/public']
 Cuba.use Rack::Session::Cookie
 
-# Esto define una simple API para ver datos en JSON
+# Una simple API para ver datos en JSON
 # del Censo de Argentina 2010.
-# Datos de http://bit.ly/kac3xe (by @jazzido)
+# 
+# Datos de https://github.com/etagwerker/c2010-scrapper
 Cuba.define do
   def partial(view, options = {})
     render("app/views/#{view}.haml", options)
@@ -21,7 +22,10 @@ Cuba.define do
   # takes buenos_aires and it turns it into
   # BUENOS AIRES, for example
   def sanitize(param)
-    result = param.sub(/_/,' ')
+    param = CGI::unescape(param)
+    param = Iconv.new('ASCII//IGNORE//TRANSLIT', 'UTF-8').iconv(param)
+    param = param.gsub(/[^\-x00-\x7F]/n, '').to_s
+    result = param.gsub(/_/,' ')
     result.upcase!
   end
     
@@ -69,11 +73,11 @@ Cuba.define do
   
     on ":provincia" do |pcia|
       on "" do
-        res.write Departamento.all(:provincia => sanitize(pcia)).to_json        
+        res.write Departamento.find_all_by_provincia(sanitize(pcia)).to_json        
       end
       
       on "departamentos" do
-        res.write Departamento.all(:provincia => sanitize(pcia), :order => :nombre.asc).map(&:nombre).to_json        
+        res.write Departamento.departamentos_for(sanitize(pcia)).to_json        
       end
       
       on ":departamento" do |depto|
