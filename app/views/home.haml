@@ -13,41 +13,62 @@
 %p
   Los métodos se acceden a través de una interfaz HTTP REST y devuelven JSON.    
 
+%hr
 .methods
+  %h3
+    Básicos
   %p
-    %h3
+    %h4
       Provincias
     %a{:href => '/provincias'}
       %pre
         GET /provincias
   %p
-    %h3
+    %h4
       Departamentos
     %a{:href => '/departamentos'}
       %pre
         GET /departamentos
   %p
-    %h3
-      Datos por Provincia
-    %a{:href => '/buenos_aires'}
+    %h4
+      Departamentos por Provincia
+    %a{:href => '/santa_fe/departamentos'}
       %pre
-        GET /buenos_aires
-    (En general, GET /nombre_de_provincia)
+        GET /santa_fe/departamentos        
+    (En general, GET /:nombre_de_provincia/departamentos)
+  %hr
+  %h3
+    Población
   %p
-    %h3
+    %h4
+      Datos por Provincia
+    %a{:href => '/poblacion/buenos_aires'}
+      %pre
+        GET /poblacion/buenos_aires
+    (En general, GET /poblacion/:nombre_de_provincia)
+  %p
+    %h4
+      Totales por Provincia
+    %a{:href => '/poblacion/buenos_aires/totales'}
+      %pre
+        GET /poblacion/buenos_aires/totales
+    (En general, GET /poblacion/:nombre_de_provincia/totales)    
+  %p
+    %h4
       Datos por Departamento
-    %a{:href => '/buenos_aires/san_nicolas'}
+    %a{:href => '/poblacion/buenos_aires/san_nicolas'}
       %pre    
-        GET /buenos_aires/san_nicolas
-    (En general, GET /nombre_de_provincia/nombre_de_departamento)    
+        GET /poblacion/buenos_aires/san_nicolas
+    (En general, GET /poblacion/:nombre_de_provincia/:nombre_de_departamento)    
   %p
-    %h3
-      Raw Data
-    %a{:href => '/raw_data'}
+    %h4
+      Totales por Departamento
+    %a{:href => '/poblacion/buenos_aires/san_nicolas/totales'}
       %pre    
-        GET /raw_data
+        GET /poblacion/buenos_aires/san_nicolas/totales
+    (En general, GET /poblacion/:nombre_de_provincia/:nombre_de_departamento/totales)    
   %p
-    %h3
+    %h4
       Version
     %a{:href => '/version'}
       %pre    
