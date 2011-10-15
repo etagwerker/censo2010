@@ -41,19 +41,6 @@ Cuba.define do
     res['Content-Type'] = 'text/html'
     res.write layout("layout", content: partial(view, options))
   end
-  
-  on post do 
-    
-    # this method is just a workaround for the
-    # heroku deployment and loading the data
-    on "load_data" do |variable|
-      @initial = Departamento.count
-      load_data
-      @end = Departamento.count
-      page("load_data")
-    end
-    
-  end
 
   on get do
     res['Content-Type'] = 'application/json'
