@@ -70,22 +70,37 @@ Cuba.define do
     on "raw_data" do
       res.write Departamento.all.to_json
     end
-  
+    
+    on "poblacion" do
+      on ":provincia" do |pcia|
+        on "" do
+          res.write Departamento.find_all_by_provincia(sanitize(pcia)).to_json        
+        end
+        
+        on "totales" do
+          res.write Departamento.population_totals_for(:provincia => sanitize(pcia)).to_json            
+        end
+
+        on ":departamento" do |depto|
+
+          on "" do 
+            res.write Departamento.find_all_by(:nombre => sanitize(depto), :provincia => sanitize(pcia)).to_json            
+          end
+          
+          on "totales" do
+            res.write Departamento.population_totals_for(:nombre => sanitize(depto), :provincia => sanitize(pcia)).to_json            
+          end
+        end
+      end      
+    end
+    
     on ":provincia" do |pcia|
-      on "" do
-        res.write Departamento.find_all_by_provincia(sanitize(pcia)).to_json        
-      end
-      
+
       on "departamentos" do
         res.write Departamento.departamentos_for(sanitize(pcia)).to_json        
       end
       
-      on ":departamento" do |depto|
-        
-        on "" do 
-          res.write Departamento.all(:nombre => sanitize(depto), :provincia => sanitize(pcia)).to_json            
-        end
-      end
     end
+
   end
 end
