@@ -24,9 +24,7 @@ dm-types --version 1.1.0
 dm-validations --version 1.1.0
 do_postgres --version 0.10.6
 fastercsv --version 1.5.4
-ffi --version 1.0.8
 haml --version 3.1.1
-heroku --version 2.1.4
 json --version 1.4.6
 json_pure --version 1.5.1
 launchy --version 0.4.0
