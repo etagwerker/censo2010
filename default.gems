@@ -34,7 +34,9 @@ launchy -v0.4.0
 linecache19 -v0.5.12
 mime-types -v1.16
 nokogiri -v1.4.4
+pg -v0.11.0
 rack -v1.2.2
+rack-jsonp -v1.3.0
 rack-test -v0.6.0
 rake -v0.8.7
 rest-client -v1.6.1
