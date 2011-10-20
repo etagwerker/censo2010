@@ -1,4 +1,3 @@
-# default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
 addressable --version 2.2.6
 archive-tar-minitar --version 0.5.2
 bcrypt-ruby --version 2.1.4
