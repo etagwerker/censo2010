@@ -2,12 +2,14 @@
 
 require "cuba"
 require "haml"
+require "rack/jsonp"
 
 require "./lib/data_loader.rb"
 
 VERSION = "2.0"
 
 Cuba.use Rack::Static, :urls => ['/js', '/public']
+Cuba.use Rack::JSONP 
 Cuba.use Rack::Session::Cookie
 
 # Una simple API para ver datos en JSON
