@@ -6,7 +6,7 @@ require "rack/jsonp"
 
 require "./lib/data_loader.rb"
 
-VERSION = "2.0"
+VERSION = "2.1"
 
 Cuba.use Rack::Static, :urls => ['/js', '/public']
 Cuba.use Rack::JSONP 
