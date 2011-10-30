@@ -52,6 +52,7 @@ Cuba.define do
     res['Content-Type'] = 'application/json'
     
     on "" do
+      @version = VERSION
       page("home")
     end
         
