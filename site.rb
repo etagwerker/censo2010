@@ -99,7 +99,8 @@ Cuba.define do
     on ":provincia" do |pcia|
 
       on "departamentos" do
-        res.write Departamento.departamentos_for(sanitize(pcia)).to_json        
+        res.write Departamento.departamentos_for(sanitize(pcia)).map { |d| 
+          as_record(d)}.to_json
       end
       
     end
