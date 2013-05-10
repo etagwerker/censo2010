@@ -34,7 +34,9 @@ launchy -v0.4.0
 linecache19 -v0.5.12
 mime-types -v1.16
 nokogiri -v1.4.4
+pg -v0.11.0
 rack -v1.2.2
+rack-jsonp -v1.3.0
 rack-test -v0.6.0
 rake -v0.8.7
 rest-client -v1.6.1
@@ -43,8 +45,13 @@ ruby-debug19 -v0.11.6
 ruby_core_source -v0.1.5
 rubyzip -v0.9.4
 selenium-webdriver -v0.2.0
+sequel -v3.20.0
 shotgun -v0.9
+sinatra -v1.0
+sqlite3 -v1.3.4
+sqlite3-ruby -v1.3.3
 stringex -v1.2.1
+taps -v0.3.23
 term-ansicolor -v1.0.5
 tilt -v1.3
 uuidtools -v2.1.2
